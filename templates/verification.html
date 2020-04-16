@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<form method="POST" action="/accounts/verification/" class="send w3-padding-large w3-card-8 w3-round-large w3-white w3-center w3-display-middle">
+  {% csrf_token %} 
+  <h1 class="w3-red w3-round-large">Account Verification</h1>
+  <p class="w3-left w3-text-red">E-mail</p> <input class="w3-input w3-large w3-padding-16" type="email" maxlength="50" name="email" required>
+  <p class="w3-left w3-text-red">Verification Code</p> <input class="w3-input w3-large w3-padding-16" type="text" maxlength="15" name="otp">
+  <p class=" w3-margin-top">
+   <input type="submit" class="w3-button w3-red w3-round-medium w3-hover-deep-orange" value="Send">
+   <button class="mybtn w3-button w3-white w3-text-red w3-round-medium w3-hover-red" name="resend">Send Verification Code</button>
+  </p>
+</form>
+<div><p id="result" style="border:0px;padding:0px;margin:0px;"></p></div>
+<script src="{% static 'js/notifyed.js' %}"></script>
+{% endblock %}
